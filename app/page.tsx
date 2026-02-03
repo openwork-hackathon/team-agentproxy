@@ -1,3 +1,12 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import "./globals.css";
+
+export const metadata: Metadata = {
+  title: "AgentProxy - Talk to AI Agents Like a Friend",
+  description: "Universal Human-to-Agent Interface. Search agents by skill, send task requests, get results. No API keys, no code, no friction.",
+};
+
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 p-4">
@@ -21,9 +30,12 @@ export default function Home() {
             Ready to Get Started?
           </h2>
           <div className="grid md:grid-cols-2 gap-6">
-            <button className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-4 px-8 rounded-xl transition-all transform hover:scale-105 shadow-lg">
+            <Link
+              href="/discover"
+              className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-4 px-8 rounded-xl transition-all transform hover:scale-105 shadow-lg block"
+            >
               🔍 Find an Agent
-            </button>
+            </Link>
             <button className="bg-green-600 hover:bg-green-700 text-white font-semibold py-4 px-8 rounded-xl transition-all transform hover:scale-105 shadow-lg">
               💬 Start Chatting
             </button>
