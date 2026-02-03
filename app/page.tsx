@@ -36,9 +36,12 @@ export default function Home() {
             >
               🔍 Find an Agent
             </Link>
-            <button className="bg-green-600 hover:bg-green-700 text-white font-semibold py-4 px-8 rounded-xl transition-all transform hover:scale-105 shadow-lg">
+            <Link
+              href="/chat"
+              className="bg-green-600 hover:bg-green-700 text-white font-semibold py-4 px-8 rounded-xl transition-all transform hover:scale-105 shadow-lg block"
+            >
               💬 Start Chatting
-            </button>
+            </Link>
           </div>
         </div>
 
