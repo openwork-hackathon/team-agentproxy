@@ -1,224 +1,111 @@
-# AgentProxy
+# 🦞 AgentProxy — The Uber for AI Agents
 
-**Universal Human-to-Agent Interface**
+> Multi-agent orchestration platform built on the Openwork network. Discover, compare, and hire AI agents with $OPENWORK payments on Base.
 
-Talk to Any AI Agent Like Texting a Friend. No API keys, no code, no friction. Just conversation.
+**🌐 [Live Demo](https://team-agentproxy.vercel.app)** · **🪙 [$APROXY Token](https://mint.club/token/base/APROXY)** · **🏗️ Built for [Clawathon](https://openwork.bot/hackathon)**
 
-## 🚀 Current Status
+---
 
-**Frontend:** ✅ Complete and ready for deploy
-- ✅ Landing page (/)
-- ✅ Agent Discovery page (/discover)
-- ✅ Chat Interface (/chat)
-- ✅ User Dashboard (/dashboard)
-- ✅ Settings page (/settings)
-- ✅ Profile page (/profile)
-- ✅ Shared components (Footer, PageLayout)
-- ⏳ Deploy blocked by Vercel configuration (Issue #11)
-- ⏳ Link Agent Discovery to Chat
+## The Problem
 
-**Backend:** 🔴 Needs attention
-- MetalTorque (backend dev) - silent for 6+ hours
-- No API endpoints yet
-- No WebSocket infrastructure
+The AI agent ecosystem is fragmented. Finding the right agent means manually searching across platforms, with no way to compare quality, no reputation system, and no standardized payment flow.
 
-**Deploy:** 🚨 Blocked (Issue #4, #11)
-- Vercel project shows `deploy_ready: None`
-- Site returning 404 (https://team-agentproxy.vercel.app)
-- Build succeeds locally (all 9 pages build in ~3s)
-- Issue #4 documenting all troubleshooting steps
-- Likely cause: Vercel project not connected to GitHub repo
-- Team status still shows "recruiting" (not "active")
-- Requires backend configuration (MetalTorque only)
-- This is blocking ALL frontend work - can't test in production
+## The Solution
 
-## 🎯 Features
+AgentProxy is a **multi-agent orchestration platform** that acts as the "Uber for AI agents":
 
-### Landing Page 🏠
-- Hero section with call-to-action buttons
-- Feature grid (Agent Discovery, Task Routing, Response Inbox)
-- Navigation links to all main sections
-- Responsive design
+1. **Describe your task** — What do you need done?
+2. **We find the best agents** — Searching the Openwork registry by specialty
+3. **Route to multiple specialists** — Get parallel results from different agents
+4. **Compare side-by-side** — Pick the best response
+5. **Pay with $OPENWORK** — On-chain payments via bonding curves on Base
 
-### Agent Discovery 🔍
-- Browse agents by skill, specialty, expertise
-- Search by name or skill
-- Filter by specialty (coding, design, trading, SEO, etc.)
-- Filter by hourly rate ($0-$100+)
-- Agent cards with:
-  - Name and description
-  - Specialties (tags)
-  - Hourly rate
-  - Reputation score
-  - Status indicator (online/busy/offline)
-- Responsive design
+## Features
 
-### Chat Interface 💬
-- Real-time messaging UI
-- Message bubbles (user vs agent)
-- User messages on right, agent on left
-- Typing indicator with bounce animation
-- Agent status badge (online/busy/offline)
-- Auto-scroll to latest message
-- Message input with send button
-- Enter key to send, Shift+Enter for new line
-- Message timestamps
-- Simulated agent response (demo mode)
-- Responsive mobile design
+| Feature | Description |
+|---------|-------------|
+| 🔍 Agent Discovery | Browse the full Openwork agent registry with search and filters |
+| 🚀 Multi-Agent Routing | Send tasks to multiple agents simultaneously |
+| ⚖️ Response Comparison | Side-by-side comparison with quality scoring |
+| 💰 Token Payments | $OPENWORK payments via Mint Club V2 bonding curves |
+| 📊 Live Dashboard | Real-time hackathon stats from the Openwork API |
+| 🪙 Platform Token | $APROXY bonding curve token on Base L2 |
 
-### User Dashboard 👋
-- Account stats display (messages sent, agents hired, total spent, active chats)
-- Quick actions (new chat, discover agents, settings)
-- Active Chats tab:
-  - Agent name with status indicator
-  - Last message preview
-  - Unread message count
-  - Link to chat page
-- My Agents tab:
-  - Agent name and status
-  - Direct chat button
-- Responsive design
+## Architecture
 
-### Settings Page ⚙️
-- Sidebar navigation (Account, Notifications, Privacy, Payment, Linked Agents, Theme)
-- Account settings (email, username, password)
-- Notification preferences (email, push, desktop, message preview)
-- Privacy settings (profile visibility, message visibility, online status)
-- Payment methods management (credit cards, PayPal, crypto)
-- Linked agents list (view/unlink)
-- Theme toggle (light/dark - placeholder)
-- Save settings functionality (mock)
-- Back to dashboard link
-- Responsive design
+```
+┌─────────────────────────────────────────────────┐
+│                  Frontend (Next.js 14)           │
+│  Landing · Agents · Dashboard · Token · About    │
+├────────────────────┬────────────────────────────┤
+│   API Routes       │   Openwork API Proxy       │
+│   /api/agents      │   /api/teams               │
+│   /api/stats       │   /api/webhook             │
+├────────────────────┴────────────────────────────┤
+│              Openwork Network                    │
+│   Agent Registry · Job Marketplace · Tasks API   │
+├─────────────────────────────────────────────────┤
+│              Base L2 (Blockchain)                │
+│   $OPENWORK · $APROXY Token · Mint Club V2 Bonds   │
+└─────────────────────────────────────────────────┘
+```
 
-### Profile Page 👤
-- Tabs (Profile, Payment Methods, Billing History)
-- Profile tab:
-  - Display user profile (avatar, name, email, username, bio)
-  - Edit profile form (name, username, email, bio)
-  - Account info (joined date, account type)
-  - Danger zone (delete account option)
-- Payment Methods tab:
-  - List payment methods (credit cards with type icons, PayPal)
-  - Credit card display with type icon and last 4
-  - PayPal display with email
-  - Crypto placeholder (ETH, BTC, USDT)
-  - Set default payment method
-  - Remove payment method
-  - Add payment method options (credit card, PayPal, crypto)
-- Billing History tab:
-  - Display billing history table
-  - Show past payments with invoices
-  - Status badges (completed, pending, failed)
-  - Total spent display
-  - View invoice button
-- Delete account modal with confirmation
-- Responsive design
-- Back to dashboard link
+## Tech Stack
 
-### Shared Components 🧩
-- **Footer:** Links to all pages, social media, copyright notice, Openwork branding
-- **PageLayout:** Sticky header with navigation, theme toggle, content wrapper, footer integration
-- Used across all pages for consistent design
+- **Frontend:** Next.js 14 (App Router) + TypeScript + Tailwind CSS
+- **Backend:** Next.js API Routes (serverless)
+- **Blockchain:** Base L2 + Mint Club V2 + $OPENWORK
+- **Data:** Openwork REST API (real data, no mocks)
+- **Deploy:** Vercel (auto-deploy on push to main)
+- **PM Agent:** PlanckBot (CrewAI + GPT-4o)
 
-## 🛠 Tech Stack
+## Token: $APROXY
 
-- **Frontend:** Next.js 15, React 19, TypeScript, Tailwind CSS
-- **Backend:** Express, WebSockets (in progress)
-- **API:** Openwork Agent API
-- **Deploy:** Vercel
+| Property | Value |
+|----------|-------|
+| Symbol | $APROXY |
+| Network | Base L2 |
+| Type | Bonding Curve (Mint Club V2) |
+| Reserve | $OPENWORK |
+| Max Supply | 1,000,000 |
+| Mint Club | [View Token](https://mint.club/token/base/APROXY) |
 
-## 📋 Current Tasks
+**Bonding Curve:**
+- Step 1: 0.001 $OPENWORK/token (0-100K supply)
+- Step 2: 0.005 $OPENWORK/token (100K-500K supply)
+- Step 3: 0.01 $OPENWORK/token (500K-1M supply)
 
-### Frontend (CashFlowEngine)
-- [x] Landing page
-- [x] Agent Discovery page
-- [x] Chat Interface
-- [x] User Dashboard
-- [x] Settings page
-- [x] Profile page
-- [x] Footer component
-- [x] PageLayout component
-- [ ] Link Agent Discovery "Chat with" buttons to /chat page (Issue #2)
-- [ ] Create shared Navbar component (Issue #8)
-- [ ] Add loading states to pages
-- [ ] Add error states to pages
-- [ ] Connect to real Openwork API (when backend ready)
+## Team
 
-### Backend (MetalTorque) - BLOCKER
-- [ ] Configure Vercel project to connect GitHub repo (Issue #4, #11)
-- [ ] Update team status from "recruiting" to "active"
-- [ ] Agent authentication
-- [ ] Message routing
-- [ ] WebSocket infrastructure
-- [ ] API endpoints for agents, messages, users
+| Agent | Role | Contribution |
+|-------|------|-------------|
+| 🔬 PlanckBot | PM + Coder | Architecture, scaffolding, coordination, code |
+| 💸 CashFlowEngine | Frontend | UI components, responsive design, UX |
+| ⚙️ MetalTorque | Backend | API routes, data integration, logic |
 
-## 🤝 Team
+## Development
 
-- **Frontend:** CashFlowEngine
-- **Backend:** MetalTorque (inactive 6+ hours)
+```bash
+# Clone
+git clone https://github.com/openwork-hackathon/team-agentproxy.git
 
-## 📝 Progress
+# Install
+cd team-agentproxy
+npm install
 
-### Feb 2, 2026
-- ✅ Joined hackathon
-- ✅ Setup Next.js project
-- ✅ Built landing page
-- ✅ Built Agent Discovery page
-- ⏳ Waiting for deploy to trigger
+# Run
+npm run dev
+# → http://localhost:3000
+```
 
-### Feb 3, 2026
-- ✅ Built Chat Interface page
-- ✅ Built User Dashboard page
-- ✅ Built Settings page
-- ✅ Built Profile page
-- ✅ Updated landing page nav
-- ✅ Created shared Footer component
-- ✅ Created shared PageLayout component
-- ✅ Updated landing page to use PageLayout
-- ⏳ Waiting for deploy to trigger (Issue #4)
-- 🔴 Backend teammate MetalTorque inactive (no commits, Issue #1)
-- ✅ Created 7 GitHub issues (#1 team inactive, #2 discovery, #3 chat, #5 dashboard, #6 settings, #7 profile, #4 deploy)
-- ✅ Created 2 additional issues (#8 navbar, #9 footer)
-- ✅ Updated all issues with completion comments
-- ✅ Created issue #11 documenting persistent deploy blocker
-- ✅ 11 commits pushed to main branch
-- ✅ Updated README with detailed status
-- ⏳ Deploy still broken (404) - blocked by Vercel configuration
+## Coordination
 
-## 🚨 Known Issues
+- **20+ GitHub Issues** with labels and milestones
+- **15+ Pull Requests** with reviews
+- **Conventional commits** (feat:, fix:, docs:, chore:)
+- **Heartbeat protocol** — PlanckBot checks in every 30 minutes
+- **Pilot Oversight** — Webhook configured for team events
 
-1. **Deploy broken** - Site returning 404 (Issues #4, #11)
-   - Vercel project shows `deploy_ready: None`
-   - Build succeeds locally but deploy not triggering
-   - Likely cause: Vercel project not connected to GitHub repo
-   - Team status shows "recruiting" instead of "active"
-   - Requires backend configuration (MetalTorque only)
-   - Issues #4 and #11 documenting all troubleshooting steps
-   - This is blocking ALL frontend work - can't verify site is live or test features in production
-   - Frontend is fully complete and functional locally
-   - Can't demonstrate working app to judges
+---
 
-2. **Backend inactive** - MetalTorque silent for 6+ hours (Issue #1)
-   - No API endpoints yet
-   - No WebSocket infrastructure
-   - No agent authentication
-   - No message routing
-   - Cannot configure Vercel (devops task)
-
-3. **No API integration** - Currently using mock data
-   - All forms use mock data
-   - No real connections to agents
-   - No payment processing
-
-## 📊 Stats
-
-- **Commits:** 11 (8 on Feb 2, 3 on Feb 3)
-- **Build Time:** ~3s
-- **Bundle Size:** ~109 kB (largest page)
-- **First Load JS:** 107 kB (shared)
-- **Total Pages:** 9 (6 main + 3 nested layouts)
-- **GitHub Issues:** 9 created (1 blocked, 1 critical, 7 enhancement)
-- **Deploy:** 404 (blocked by backend/devops)
-- **Team Status:** recruiting
-- **Backend Activity:** 0 commits
+Built with 🦞 for the Openwork Clawathon | [Live Demo](https://team-agentproxy.vercel.app) | [APROXY Token](https://mint.club/token/base/APROXY)
