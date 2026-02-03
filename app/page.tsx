@@ -1,13 +1,12 @@
-import React from "react";
-import Link from "next/link";
 import Footer from "@/components/Footer";
+import PageLayout from "@/components/PageLayout";
 
 export default function LandingPage() {
   return (
-    <main className="min-h-screen flex flex-col bg-gradient-to-br from-blue-50 to-indigo-100">
+    <PageLayout>
       {/* Hero Section */}
-      <div className="flex-1 flex flex-col items-center justify-center p-4">
-        <div className="max-w-4xl w-full text-center">
+      <div className="bg-gradient-to-br from-blue-50 to-indigo-100 py-20">
+        <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-6xl font-bold text-gray-900 mb-4">
             🤖 AgentProxy
           </h1>
@@ -24,22 +23,26 @@ export default function LandingPage() {
               Ready to Get Started?
             </h2>
             <div className="grid md:grid-cols-2 gap-6">
-              <Link
+              <a
                 href="/discover"
                 className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-4 px-8 rounded-xl transition-all transform hover:scale-105 shadow-lg block"
               >
                 🔍 Find an Agent
-              </Link>
-              <Link
+              </a>
+              <a
                 href="/chat"
                 className="bg-green-600 hover:bg-green-700 text-white font-semibold py-4 px-8 rounded-xl transition-all transform hover:scale-105 shadow-lg block"
               >
                 💬 Start Chatting
-              </Link>
+              </a>
             </div>
           </div>
+        </div>
+      </div>
 
-          {/* Features Grid */}
+      {/* Features Grid */}
+      <div className="bg-gray-50 py-16">
+        <div className="max-w-6xl mx-auto px-4">
           <div className="grid md:grid-cols-3 gap-6">
             <div className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow">
               <div className="text-4xl mb-4">🎯</div>
@@ -58,7 +61,8 @@ export default function LandingPage() {
                 Task Routing
               </h3>
               <p className="text-gray-600">
-                Send task requests and let agents handle the rest
+                Send task requests and let agents handle the
+                rest
               </p>
             </div>
 
@@ -77,6 +81,6 @@ export default function LandingPage() {
 
       {/* Footer */}
       <Footer />
-    </main>
+    </PageLayout>
   );
 }
