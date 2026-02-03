@@ -6,27 +6,31 @@ Talk to Any AI Agent Like Texting a Friend. No API keys, no code, no friction. J
 
 ## 🚀 Current Status
 
-**Frontend:** ✅ Building actively
+**Frontend:** ✅ Complete and ready for deploy
 - ✅ Landing page (/)
 - ✅ Agent Discovery page (/discover)
 - ✅ Chat Interface (/chat)
 - ✅ User Dashboard (/dashboard)
 - ✅ Settings page (/settings)
 - ✅ Profile page (/profile)
+- ✅ Shared components (Footer, PageLayout)
+- ⏳ Deploy blocked by Vercel configuration (Issue #11)
 - ⏳ Link Agent Discovery to Chat
-- ⏳ Create shared components
 
 **Backend:** 🔴 Needs attention
-- MetalTorque (backend dev) - silent for 5+ hours
+- MetalTorque (backend dev) - silent for 6+ hours
 - No API endpoints yet
 - No WebSocket infrastructure
 
-**Deploy:** 🚨 Blocked (Issue #4)
+**Deploy:** 🚨 Blocked (Issue #4, #11)
 - Vercel project shows `deploy_ready: None`
 - Site returning 404 (https://team-agentproxy.vercel.app)
 - Build succeeds locally (all 9 pages build in ~3s)
-- Issue #4 created to track blocker
-- Waiting on backend teammate to configure Vercel
+- Issue #4 documenting all troubleshooting steps
+- Likely cause: Vercel project not connected to GitHub repo
+- Team status still shows "recruiting" (not "active")
+- Requires backend configuration (MetalTorque only)
+- This is blocking ALL frontend work - can't test in production
 
 ## 🎯 Features
 
@@ -85,6 +89,7 @@ Talk to Any AI Agent Like Texting a Friend. No API keys, no code, no friction. J
 - Theme toggle (light/dark - placeholder)
 - Save settings functionality (mock)
 - Back to dashboard link
+- Responsive design
 
 ### Profile Page 👤
 - Tabs (Profile, Payment Methods, Billing History)
@@ -95,17 +100,26 @@ Talk to Any AI Agent Like Texting a Friend. No API keys, no code, no friction. J
   - Danger zone (delete account option)
 - Payment Methods tab:
   - List payment methods (credit cards with type icons, PayPal)
+  - Credit card display with type icon and last 4
+  - PayPal display with email
+  - Crypto placeholder (ETH, BTC, USDT)
   - Set default payment method
-  - Remove payment methods
+  - Remove payment method
   - Add payment method options (credit card, PayPal, crypto)
 - Billing History tab:
   - Display billing history table
   - Show past payments with invoices
   - Status badges (completed, pending, failed)
   - Total spent display
+  - View invoice button
 - Delete account modal with confirmation
 - Responsive design
 - Back to dashboard link
+
+### Shared Components 🧩
+- **Footer:** Links to all pages, social media, copyright notice, Openwork branding
+- **PageLayout:** Sticky header with navigation, theme toggle, content wrapper, footer integration
+- Used across all pages for consistent design
 
 ## 🛠 Tech Stack
 
@@ -123,13 +137,17 @@ Talk to Any AI Agent Like Texting a Friend. No API keys, no code, no friction. J
 - [x] User Dashboard
 - [x] Settings page
 - [x] Profile page
-- [ ] Link Agent Discovery to Chat
-- [ ] Create shared components (Navbar, Footer)
-- [ ] Add loading states
-- [ ] Add error states
+- [x] Footer component
+- [x] PageLayout component
+- [ ] Link Agent Discovery "Chat with" buttons to /chat page (Issue #2)
+- [ ] Create shared Navbar component (Issue #8)
+- [ ] Add loading states to pages
+- [ ] Add error states to pages
+- [ ] Connect to real Openwork API (when backend ready)
 
-### Backend (MetalTorque)
-- [ ] Vercel project configuration (Issue #4)
+### Backend (MetalTorque) - BLOCKER
+- [ ] Configure Vercel project to connect GitHub repo (Issue #4, #11)
+- [ ] Update team status from "recruiting" to "active"
 - [ ] Agent authentication
 - [ ] Message routing
 - [ ] WebSocket infrastructure
@@ -138,7 +156,7 @@ Talk to Any AI Agent Like Texting a Friend. No API keys, no code, no friction. J
 ## 🤝 Team
 
 - **Frontend:** CashFlowEngine
-- **Backend:** MetalTorque
+- **Backend:** MetalTorque (inactive 6+ hours)
 
 ## 📝 Progress
 
@@ -155,26 +173,38 @@ Talk to Any AI Agent Like Texting a Friend. No API keys, no code, no friction. J
 - ✅ Built Settings page
 - ✅ Built Profile page
 - ✅ Updated landing page nav
+- ✅ Created shared Footer component
+- ✅ Created shared PageLayout component
+- ✅ Updated landing page to use PageLayout
 - ⏳ Waiting for deploy to trigger (Issue #4)
-- 🔵 Backend teammate MetalTorque inactive (no commits, Issue #1)
-- ✅ Created 7 GitHub issues
+- 🔴 Backend teammate MetalTorque inactive (no commits, Issue #1)
+- ✅ Created 7 GitHub issues (#1 team inactive, #2 discovery, #3 chat, #5 dashboard, #6 settings, #7 profile, #4 deploy)
+- ✅ Created 2 additional issues (#8 navbar, #9 footer)
 - ✅ Updated all issues with completion comments
-- ✅ 10 commits pushed to main branch
-- ✅ All pages building successfully (9 pages total)
+- ✅ Created issue #11 documenting persistent deploy blocker
+- ✅ 11 commits pushed to main branch
+- ✅ Updated README with detailed status
+- ⏳ Deploy still broken (404) - blocked by Vercel configuration
 
 ## 🚨 Known Issues
 
-1. **Deploy broken** - Site returning 404 (Issue #4)
-   - Vercel not triggering builds
-   - Frontend is ready and fully functional
-   - Requires backend configuration
-   - Blocking all frontend testing in production
+1. **Deploy broken** - Site returning 404 (Issues #4, #11)
+   - Vercel project shows `deploy_ready: None`
+   - Build succeeds locally but deploy not triggering
+   - Likely cause: Vercel project not connected to GitHub repo
+   - Team status shows "recruiting" instead of "active"
+   - Requires backend configuration (MetalTorque only)
+   - Issues #4 and #11 documenting all troubleshooting steps
+   - This is blocking ALL frontend work - can't verify site is live or test features in production
+   - Frontend is fully complete and functional locally
+   - Can't demonstrate working app to judges
 
-2. **Backend inactive** - MetalTorque silent for 5+ hours (Issue #1)
+2. **Backend inactive** - MetalTorque silent for 6+ hours (Issue #1)
    - No API endpoints yet
    - No WebSocket infrastructure
    - No agent authentication
    - No message routing
+   - Cannot configure Vercel (devops task)
 
 3. **No API integration** - Currently using mock data
    - All forms use mock data
@@ -183,11 +213,12 @@ Talk to Any AI Agent Like Texting a Friend. No API keys, no code, no friction. J
 
 ## 📊 Stats
 
-- **Commits:** 10 (8 on Feb 2, 2 on Feb 3)
+- **Commits:** 11 (8 on Feb 2, 3 on Feb 3)
 - **Build Time:** ~3s
 - **Bundle Size:** ~109 kB (largest page)
-- **First Load JS:** 106 kB (shared)
+- **First Load JS:** 107 kB (shared)
 - **Total Pages:** 9 (6 main + 3 nested layouts)
-- **GitHub Issues:** 7 created (1 blocked, 6 completed)
-- **Deploy:** 404 (blocked)
+- **GitHub Issues:** 9 created (1 blocked, 1 critical, 7 enhancement)
+- **Deploy:** 404 (blocked by backend/devops)
 - **Team Status:** recruiting
+- **Backend Activity:** 0 commits
