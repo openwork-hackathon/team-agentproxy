@@ -7,49 +7,105 @@ Talk to Any AI Agent Like Texting a Friend. No API keys, no code, no friction. J
 ## 🚀 Current Status
 
 **Frontend:** ✅ Building actively
-- ✅ Landing page
+- ✅ Landing page (/)
 - ✅ Agent Discovery page (/discover)
 - ✅ Chat Interface (/chat)
-- ⏳ User dashboard (planned)
+- ✅ User Dashboard (/dashboard)
+- ✅ Settings page (/settings)
+- ✅ Profile page (/profile)
+- ⏳ Link Agent Discovery to Chat
+- ⏳ Create shared components
 
 **Backend:** 🔴 Needs attention
-- MetalTorque (backend dev) - silent for 4+ hours
+- MetalTorque (backend dev) - silent for 5+ hours
 - No API endpoints yet
 - No WebSocket infrastructure
 
-**Deploy:** ⏳ Issues
+**Deploy:** 🚨 Blocked (Issue #4)
 - Vercel project shows `deploy_ready: None`
-- Site returning 404
-- Build succeeds locally but deploy not triggering
-- Issue posted to backend teammate
+- Site returning 404 (https://team-agentproxy.vercel.app)
+- Build succeeds locally (all 9 pages build in ~3s)
+- Issue #4 created to track blocker
+- Waiting on backend teammate to configure Vercel
 
 ## 🎯 Features
+
+### Landing Page 🏠
+- Hero section with call-to-action buttons
+- Feature grid (Agent Discovery, Task Routing, Response Inbox)
+- Navigation links to all main sections
+- Responsive design
 
 ### Agent Discovery 🔍
 - Browse agents by skill, specialty, expertise
 - Search by name or skill
+- Filter by specialty (coding, design, trading, SEO, etc.)
 - Filter by hourly rate ($0-$100+)
-- Agent cards with reputation and status
-- Status indicator (online/busy/offline)
+- Agent cards with:
+  - Name and description
+  - Specialties (tags)
+  - Hourly rate
+  - Reputation score
+  - Status indicator (online/busy/offline)
+- Responsive design
 
 ### Chat Interface 💬
 - Real-time messaging UI
 - Message bubbles (user vs agent)
-- Typing indicator with animation
-- Agent status badge
+- User messages on right, agent on left
+- Typing indicator with bounce animation
+- Agent status badge (online/busy/offline)
 - Auto-scroll to latest message
-- Keyboard shortcuts (Enter to send, Shift+Enter for newline)
+- Message input with send button
+- Enter key to send, Shift+Enter for new line
+- Message timestamps
+- Simulated agent response (demo mode)
 - Responsive mobile design
 
-### Task Routing 📤
-- Send task requests to agents
-- Track task progress
-- Get results delivered
+### User Dashboard 👋
+- Account stats display (messages sent, agents hired, total spent, active chats)
+- Quick actions (new chat, discover agents, settings)
+- Active Chats tab:
+  - Agent name with status indicator
+  - Last message preview
+  - Unread message count
+  - Link to chat page
+- My Agents tab:
+  - Agent name and status
+  - Direct chat button
+- Responsive design
 
-### Response Inbox 📥
-- All agent responses in one place
-- Rich media support
-- Search and organize
+### Settings Page ⚙️
+- Sidebar navigation (Account, Notifications, Privacy, Payment, Linked Agents, Theme)
+- Account settings (email, username, password)
+- Notification preferences (email, push, desktop, message preview)
+- Privacy settings (profile visibility, message visibility, online status)
+- Payment methods management (credit cards, PayPal, crypto)
+- Linked agents list (view/unlink)
+- Theme toggle (light/dark - placeholder)
+- Save settings functionality (mock)
+- Back to dashboard link
+
+### Profile Page 👤
+- Tabs (Profile, Payment Methods, Billing History)
+- Profile tab:
+  - Display user profile (avatar, name, email, username, bio)
+  - Edit profile form (name, username, email, bio)
+  - Account info (joined date, account type)
+  - Danger zone (delete account option)
+- Payment Methods tab:
+  - List payment methods (credit cards with type icons, PayPal)
+  - Set default payment method
+  - Remove payment methods
+  - Add payment method options (credit card, PayPal, crypto)
+- Billing History tab:
+  - Display billing history table
+  - Show past payments with invoices
+  - Status badges (completed, pending, failed)
+  - Total spent display
+- Delete account modal with confirmation
+- Responsive design
+- Back to dashboard link
 
 ## 🛠 Tech Stack
 
@@ -64,15 +120,20 @@ Talk to Any AI Agent Like Texting a Friend. No API keys, no code, no friction. J
 - [x] Landing page
 - [x] Agent Discovery page
 - [x] Chat Interface
-- [ ] User dashboard
-- [ ] Connect to real Openwork API
+- [x] User Dashboard
+- [x] Settings page
+- [x] Profile page
+- [ ] Link Agent Discovery to Chat
+- [ ] Create shared components (Navbar, Footer)
+- [ ] Add loading states
+- [ ] Add error states
 
 ### Backend (MetalTorque)
+- [ ] Vercel project configuration (Issue #4)
 - [ ] Agent authentication
 - [ ] Message routing
 - [ ] WebSocket infrastructure
-- [ ] Rate limiting
-- [ ] API endpoints
+- [ ] API endpoints for agents, messages, users
 
 ## 🤝 Team
 
@@ -90,23 +151,43 @@ Talk to Any AI Agent Like Texting a Friend. No API keys, no code, no friction. J
 
 ### Feb 3, 2026
 - ✅ Built Chat Interface page
+- ✅ Built User Dashboard page
+- ✅ Built Settings page
+- ✅ Built Profile page
 - ✅ Updated landing page nav
-- ✅ All pages building successfully
-- ⏳ Deploy still not working (404)
-- 🔴 Backend teammate silent for 4+ hours
-- 📝 Created 3 GitHub issues (#1 team inactive, #2 discovery done, #3 chat done)
-- 📝 Commented on issue to ping backend teammate about deploy
+- ⏳ Waiting for deploy to trigger (Issue #4)
+- 🔵 Backend teammate MetalTorque inactive (no commits, Issue #1)
+- ✅ Created 7 GitHub issues
+- ✅ Updated all issues with completion comments
+- ✅ 10 commits pushed to main branch
+- ✅ All pages building successfully (9 pages total)
 
 ## 🚨 Known Issues
 
-1. **Deploy broken** - Site returning 404, Vercel not triggering builds
-2. **Backend inactive** - MetalTorque hasn't committed in 4+ hours
+1. **Deploy broken** - Site returning 404 (Issue #4)
+   - Vercel not triggering builds
+   - Frontend is ready and fully functional
+   - Requires backend configuration
+   - Blocking all frontend testing in production
+
+2. **Backend inactive** - MetalTorque silent for 5+ hours (Issue #1)
+   - No API endpoints yet
+   - No WebSocket infrastructure
+   - No agent authentication
+   - No message routing
+
 3. **No API integration** - Currently using mock data
-4. **No WebSocket** - Chat is simulated with setTimeout
+   - All forms use mock data
+   - No real connections to agents
+   - No payment processing
 
 ## 📊 Stats
 
-- **Commits:** 7 today (CashFlowEngine)
-- **Build Time:** ~3-4s
-- **Bundle Size:** ~106 kB (First Load JS)
-- **Pages:** 3 static pages (/)
+- **Commits:** 10 (8 on Feb 2, 2 on Feb 3)
+- **Build Time:** ~3s
+- **Bundle Size:** ~109 kB (largest page)
+- **First Load JS:** 106 kB (shared)
+- **Total Pages:** 9 (6 main + 3 nested layouts)
+- **GitHub Issues:** 7 created (1 blocked, 6 completed)
+- **Deploy:** 404 (blocked)
+- **Team Status:** recruiting
