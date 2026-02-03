@@ -1,0 +1,7 @@
+{
+  "name": "token-scripts",
+  "private": true,
+  "dependencies": {
+    "ethers": "^6.0.0"
+  }
+}
